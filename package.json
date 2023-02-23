@@ -1,7 +1,6 @@
 {
   "name": "api-rest",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
@@ -17,5 +16,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AngelicaIslas98/api-rest.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AngelicaIslas98/api-rest/issues"
+  },
+  "homepage": "https://github.com/AngelicaIslas98/api-rest#readme",
+  "description": ""
 }
