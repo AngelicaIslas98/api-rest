@@ -24,7 +24,7 @@ router.put('/:id', (req, res) => {
     const { id } = req.params;
     const { title, director, year, rating } = req.body;
     if ( title && director && year && rating) {
-        _.each(movies, (movie, /*i*/) => {
+        _.each(movies, (movie, i) => {
             if (movie.id === id) {
                 movie.title = title;
                 movie.director = director;
