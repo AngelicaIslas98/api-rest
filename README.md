@@ -1,80 +1,93 @@
-# Api-rest
+# API REST
 
-Esta API contiene diferentes rutas de acceso a una aplicacionde películas. Los datos solicitados se entregan en formato **JSON: "Title", "Director", "Year", "Rating".** Adicionalmente se realizó una conexión a una API externa para simular una base de datos de la lista de usuarios. 
+This API contains different routes to obtain information about a movie application. The information provided includes: title, director, year of release, and rating. Additionally, a connection to an external API was generated to simulate a route for users.
 
-La API permite el uso de los metodos CRUD o GET, POST, PUT y DELETE. 
+The API allows the use of GET, POST, PUT, and DELETE methods. No client or web application was created, instead a program was used to simulate client application requests.
 
-# Configuración de entorno
-- Node.JS
+# System Configuration
 - Visual Studio Code
+- Node JS
 - Postman
-- JSON Viewer (extensión del navegador)
- 
-# Dependencias 
-Instalación desde la terminal:
- 
- Ejecución para Node
- 
- `npm init --y`
- 
- 
- Framework de node
- 
- `npm express`
- 
- 
- Modulo para ver por consola las peticiones del servidor
- 
- `npm morgan `
+- JSON Viewer (browser extension)
 
+Postman Link
+(https://blue-star-689981.postman.co/workspace/Team-Workspace~a50bffa0-5f87-4fb3-8347-a5a5d776647d/collection/25919009-ad4bf487-0cc0-4ed6-8cd0-90f7d031b227?action=share&creator=25919009 "Share API's Prueba Postman")
 
-# Método GET 
-Solicitu desde el navegador con url http://localhost:3000/test
-Solicitud desde navegador con url http://localhost:3000/api/movies
-Solicitud desde navegador con url http://localhost:3000/api/users
+# Dependencies
+Creation of JSON package
+
+`npm init -y`
+
+# Modules
+
+Node framework
+
+`npm i express`
+
+Module that allows the display of requests in the console
+
+`npm i morgan`
+
+# Used Libraries
+
+`npm i underscore`
+
+`npm i node-fetch`
+
+# Accessing Routes
+
+### **GET Method.**
+Obtain the information of the route
+
+- test route
+http://localhost:3000/test
+We will receive a text in JSON format.
+
+- movies route
+http://localhost:3000/api/movies
 
 `{`
 
 `"title": "Alien",`
 
-`"director ": "James Cameron",`
+`"director": "James Cameron",`
 
-`"year": "1979",`
+`"year":"1986",`
 
-`"rating": "9.6"`
+`"rating":"8.5"`
 
 `}`
 
+# Using Postman
 
-## Ejecución desde Postman
-### Configuración de solicitudes con postman
+Header: Content-Type
+Value: application/json
+Body: "raw"
 
-**HEADERS**
+### **POST Method**
+Select POST method, place url http://localhost:3000/api/movies
 
-**KEY:** Content-type
+From "body" we write the data that will be sent to the route. The data sent must include:
 
-**VALUE:** application/json
+-Title
 
-**BODY**
-Selección de **"raw"**
-http://localhost:3000/api/movies
+-Director
 
+-Year
 
-# Método POST
-Desde postman con url http://localhost:3000/api/movies
-Permite agregar elementos en formato **JSON**, los datos se guardaran si se cumple con las variables requeridas (title, director, year, rating) con aumento automatico del ID, en caso contrario se enviara un estado 500 con un mensaje de error.
+-Rating
 
-
-# Método PUT
-Permite actualizar/cambiar los datos en memoria de una película, 
-http://localhost:3000/api/movies/:id, a tráves de un ciclo se busca la coincidencia  del ID de la película y modificará los datos enviados. 
+If not all the data is sent, an error message will be received.
 
 
-# Método DELETE
-Se buscará la coincidencia del ID ingresado para elimiar los datos en memoria.
-http://localhost:3000/api/movies/:id
+### **PUT Method**
+Select PUT method, place url http://localhost:3000/api/movies/:id
+In "/:id" the movie ID to be updated will be sent. With underscore, the array of movies will be iterated to search for the ID match and update the data.
 
 
-# Acceder a una API externa
-Se realizo una conexión con una API  https://jsonplaceholder.typicode.com/
-desde el navegador o postman se pueden obtener los datos con la url http://localhost:3000/api/users
+### **DELETE Method**
+Select DELETE method, with url http://localhost:3000/api/movies/:id
+In /:id, "1,2,3..." will be sent as the ID of the movie to be deleted. With underscore, the array of movies will be iterated to search for the ID match and delete it.
+
+# Requesting data from another REST API
+Through the GET method with url http://localhost:300/api/users, we will obtain a JSON format array from an external API."
